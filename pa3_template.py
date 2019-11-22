@@ -45,18 +45,17 @@ The regularizers shall compute the loss without considering the bias term in the
 def l1_reg(w):
 
     # TO-DO: Add your code here
+    # Remove the bias term from w vector and calculate l1 norm
 
-    # TO-DO remove bias term
-    myL1 = np.mean(np.absolute(w))
+    return np.linalg.norm(w[1:],1)
 
-    return myL1
 
 def l2_reg(w):
 
     # TO-DO: Add your code here
-    myL2 = np.mean(np.square(w))
 
-    return myL2
+    return np.dot(w[1:], w[1:])
+	
 
 def train_classifier(train_x, train_y, learn_rate, loss, lambda_val=None, regularizer=None):
 
@@ -97,12 +96,18 @@ def main():
     #print('#####################')
     #print(dataY)
 
-    x = np.array([2,3,4,2])
+    x = np.array([2,-3,4,2])
     y = np.array([2,3,4,5])
+    test = np.array([3,4])
 
     #print(np.multiply(x,y))
-    print(np.log(np.exp(-(1+x))))
-    print(dataX)
+    #print(np.log(np.exp(-(1+x))))
+    #print(dataX)
+
+    print(l1_reg(x))
+    print(l2_reg(x))
+
+    #print(x[1:])
 
     # 5-fold cross-validation
 	# Note: in this assignment, preprocessing the feature values will make
