@@ -49,14 +49,14 @@ def l1_reg(w):
     # TO-DO remove bias term
     myL1 = np.mean(np.absolute(w))
 
-    return None
+    return myL1
 
 def l2_reg(w):
 
     # TO-DO: Add your code here
     myL2 = np.mean(np.square(w))
 
-    return None
+    return myL2
 
 def train_classifier(train_x, train_y, learn_rate, loss, lambda_val=None, regularizer=None):
 
